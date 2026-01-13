@@ -471,7 +471,12 @@ export default function ResultDisplay({ results, multiCardRecommendations = [] }
                         </span>
                       </div>
                       <p className="text-xs text-gray-500">
-                        基本還元率 {result.card.baseRate}%
+                        基本還元率 {result.breakdown.effectiveBaseRate || result.card.baseRate}%
+                        {result.breakdown.effectiveBaseRate && result.breakdown.effectiveBaseRate > result.card.baseRate && (
+                          <span className="text-blue-600 font-semibold ml-1">
+                            (預金残高により{result.card.baseRate}%→{result.breakdown.effectiveBaseRate}%)
+                          </span>
+                        )}
                       </p>
                     </div>
 
