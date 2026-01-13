@@ -71,7 +71,7 @@ export default function Home() {
                 2
               </div>
               <h3 className="text-xl font-semibold mb-3 text-gray-900 mt-2">最適カードを診断</h3>
-              <p className="text-gray-600 leading-relaxed">24枚のカードから、あなたの支出パターンに最適なカードをランキング形式で表示</p>
+              <p className="text-gray-600 leading-relaxed">専門家が厳選した高還元カードから、あなたの支出パターンに最適なカードをランキング形式で表示</p>
             </div>
             <div className="relative bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
               <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
@@ -141,9 +141,9 @@ export default function Home() {
 
         {/* 対応カード */}
         <div className="bg-white rounded-lg shadow-md p-6 mt-12">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">対応カード一覧（全24枚）</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-4">厳選カードラインナップ</h2>
           <p className="text-sm text-gray-600 mb-4">
-            カード名をクリックすると、詳細情報（還元率、年会費、特典など）を確認できます。
+            還元率・年会費・特典を総合的に評価し、専門家が選定した高還元カード。カード名をクリックすると詳細情報を確認できます。
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
             <a href="/cards/jcb-card-w" className="flex items-center text-blue-600 hover:text-blue-800 hover:underline">
