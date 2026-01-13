@@ -1,0 +1,623 @@
+{
+  "cards": [
+    {
+      "id": "smbc-platinum-preferred",
+      "name": "三井住友カード プラチナプリファード",
+      "issuer": "三井住友カード",
+      "annualFee": 33000,
+      "baseRate": 1.0,
+      "pointValue": 1,
+      "bonusRates": [
+        {
+          "merchant": "amazon",
+          "merchantName": "Amazon",
+          "rate": 2.0,
+          "description": "プリファードストア特典"
+        },
+        {
+          "merchant": "rakuten",
+          "merchantName": "楽天市場",
+          "rate": 2.0,
+          "description": "プリファードストア特典"
+        },
+        {
+          "merchant": "seven_eleven",
+          "merchantName": "セブン-イレブン",
+          "rate": 2.0,
+          "description": "プリファードストア特典（コンビニ）"
+        },
+        {
+          "merchant": "family_mart",
+          "merchantName": "ファミリーマート",
+          "rate": 2.0,
+          "description": "プリファードストア特典（コンビニ）"
+        },
+        {
+          "merchant": "lawson",
+          "merchantName": "ローソン",
+          "rate": 2.0,
+          "description": "プリファードストア特典（コンビニ）"
+        }
+      ],
+      "specialBonuses": [
+        {
+          "type": "annual_usage",
+          "threshold": 1000000,
+          "bonus": 10000,
+          "description": "年間100万円以上利用で10,000ポイント"
+        },
+        {
+          "type": "annual_usage",
+          "threshold": 2000000,
+          "bonus": 10000,
+          "description": "年間200万円以上利用でさらに10,000ポイント（累計20,000ポイント）"
+        },
+        {
+          "type": "annual_usage",
+          "threshold": 3000000,
+          "bonus": 10000,
+          "description": "年間300万円以上利用でさらに10,000ポイント（累計30,000ポイント）"
+        },
+        {
+          "type": "annual_usage",
+          "threshold": 4000000,
+          "bonus": 10000,
+          "description": "年間400万円以上利用でさらに10,000ポイント（累計40,000ポイント）"
+        }
+      ],
+      "description": "ポイント還元に特化したプラチナカード。プリファードストアで最大+9%還元。",
+      "affiliateUrl": "https://www.smbc-card.com/nyukai/card/platinum-preferred.jsp"
+    },
+    {
+      "id": "smbc-gold-nl",
+      "name": "三井住友カード ゴールド(NL)",
+      "issuer": "三井住友カード",
+      "annualFee": 5500,
+      "annualFeeConditions": "年間100万円以上利用で翌年以降永年無料",
+      "baseRate": 0.5,
+      "pointValue": 1,
+      "bonusRates": [
+        {
+          "merchant": "seven_eleven",
+          "merchantName": "セブン-イレブン",
+          "rate": 7.0,
+          "description": "スマホタッチ決済で最大7%還元"
+        },
+        {
+          "merchant": "family_mart",
+          "merchantName": "ファミリーマート",
+          "rate": 7.0,
+          "description": "スマホタッチ決済で最大7%還元"
+        },
+        {
+          "merchant": "lawson",
+          "merchantName": "ローソン",
+          "rate": 7.0,
+          "description": "スマホタッチ決済で最大7%還元"
+        },
+        {
+          "merchant": "restaurant",
+          "merchantName": "マクドナルド等",
+          "rate": 7.0,
+          "description": "スマホタッチ決済で最大7%還元"
+        }
+      ],
+      "specialBonuses": [
+        {
+          "type": "annual_usage",
+          "threshold": 1000000,
+          "bonus": 10000,
+          "description": "年間100万円以上利用で10,000ポイント"
+        }
+      ],
+      "description": "年間100万円利用で年会費無料＋10,000ポイント。対象コンビニ・飲食店で最大7%還元。",
+      "affiliateUrl": "https://www.smbc-card.com/nyukai/card/goldcard.jsp"
+    },
+    {
+      "id": "jaccs-platinum",
+      "name": "ジャックスカードプラチナ",
+      "issuer": "ジャックス",
+      "annualFee": 22000,
+      "baseRate": 1.0,
+      "pointValue": 1,
+      "bonusRates": [],
+      "specialBonuses": [
+        {
+          "type": "annual_usage",
+          "threshold": 3000000,
+          "bonus": 8000,
+          "description": "年間300万円以上利用で8,000ポイント"
+        },
+        {
+          "type": "annual_usage",
+          "threshold": 5000000,
+          "bonus": 10000,
+          "description": "年間500万円以上利用で10,000ポイント"
+        }
+      ],
+      "description": "2024年以降、基本還元率1.0%。年間300万円以上で8,000pt、500万円以上で10,000pt。",
+      "affiliateUrl": "https://www.jaccs.co.jp/service/card_lineup/teikei/platina/"
+    },
+    {
+      "id": "epos-platinum",
+      "name": "エポスプラチナカード",
+      "issuer": "エポスカード",
+      "annualFee": 30000,
+      "annualFeeConditions": "インビテーション経由で20,000円、年100万円以上利用で翌年20,000円",
+      "baseRate": 0.5,
+      "pointValue": 1,
+      "bonusRates": [],
+      "specialBonuses": [
+        {
+          "type": "annual_usage",
+          "threshold": 500000,
+          "bonus": 3000,
+          "description": "年間50万円以上100万円未満で3,000ポイント"
+        },
+        {
+          "type": "annual_usage",
+          "threshold": 1000000,
+          "bonus": 20000,
+          "description": "年間100万円以上で20,000ポイント"
+        },
+        {
+          "type": "annual_usage",
+          "threshold": 2000000,
+          "bonus": 10000,
+          "description": "年間200万円以上でさらに10,000ポイント（累計30,000ポイント）"
+        },
+        {
+          "type": "annual_usage",
+          "threshold": 3000000,
+          "bonus": 10000,
+          "description": "年間300万円以上でさらに10,000ポイント（累計40,000ポイント）"
+        },
+        {
+          "type": "annual_usage",
+          "threshold": 5000000,
+          "bonus": 10000,
+          "description": "年間500万円以上でさらに10,000ポイント（累計50,000ポイント）"
+        },
+        {
+          "type": "annual_usage",
+          "threshold": 7000000,
+          "bonus": 10000,
+          "description": "年間700万円以上でさらに10,000ポイント（累計60,000ポイント）"
+        }
+      ],
+      "description": "2026年3月31日以降、年間利用額に応じて最大60,000ポイントのボーナス。プライオリティ・パス付帯。",
+      "affiliateUrl": "https://www.eposcard.co.jp/platinum/index.html"
+    },
+    {
+      "id": "recruit-card",
+      "name": "リクルートカード",
+      "issuer": "リクルート",
+      "annualFee": 0,
+      "baseRate": 1.2,
+      "pointValue": 1,
+      "bonusRates": [],
+      "specialBonuses": [],
+      "description": "年会費永年無料で1.2%の高還元率。",
+      "affiliateUrl": "https://recruit-card.jp/"
+    },
+    {
+      "id": "p-one-wiz",
+      "name": "P-oneカード Wiz",
+      "issuer": "ポケットカード",
+      "annualFee": 0,
+      "baseRate": 1.1,
+      "pointValue": 1,
+      "bonusRates": [],
+      "specialBonuses": [],
+      "description": "年会費無料。自動1%OFF＋0.1%ポイント還元で実質1.1%。リボ払い専用カードのため全額払い設定推奨。",
+      "affiliateUrl": "https://www.pocketcard.co.jp/card/card_018.html"
+    },
+    {
+      "id": "mercari-gold",
+      "name": "メルカード ゴールド",
+      "issuer": "メルペイ",
+      "annualFee": 5000,
+      "annualFeeConditions": "年間50万円以上利用で翌年無料",
+      "baseRate": 1.0,
+      "pointValue": 1,
+      "bonusRates": [],
+      "specialBonuses": [
+        {
+          "type": "annual_usage",
+          "threshold": 500000,
+          "bonus": 2500,
+          "description": "年間50万円利用で2,500ポイント"
+        },
+        {
+          "type": "annual_usage",
+          "threshold": 1000000,
+          "bonus": 7500,
+          "description": "年間100万円利用でさらに7,500ポイント（累計10,000ポイント）"
+        },
+        {
+          "type": "annual_usage",
+          "threshold": 2000000,
+          "bonus": 10000,
+          "description": "年間200万円利用でさらに10,000ポイント（累計20,000ポイント）"
+        }
+      ],
+      "description": "メルカリで1～4%還元。年間利用額ボーナスで最大実質2%還元。",
+      "affiliateUrl": "https://www.mercari.com/jp/merpay/mercardgold/"
+    },
+    {
+      "id": "marriott-bonvoy-amex-premium",
+      "name": "Marriott Bonvoy アメックス・プレミアム",
+      "issuer": "アメリカン・エキスプレス",
+      "annualFee": 82500,
+      "baseRate": 3.0,
+      "pointValue": 1,
+      "bonusRates": [
+        {
+          "merchant": "travel",
+          "merchantName": "マリオット系ホテル",
+          "rate": 3.0,
+          "description": "Marriott Bonvoy参加ホテルで6%還元（基本3%+ボーナス3%）"
+        }
+      ],
+      "specialBonuses": [
+        {
+          "type": "annual_usage",
+          "threshold": 4000000,
+          "bonus": 50000,
+          "description": "年間400万円利用で50,000ポイント相当の無料宿泊特典"
+        }
+      ],
+      "description": "旅行・ホテル特化カード。基本3%、マリオット系ホテルで6%還元。年間400万円利用で無料宿泊特典。",
+      "affiliateUrl": "https://www.americanexpress.com/jp/credit-cards/marriott-bonvoy-premium/"
+    },
+    {
+      "id": "sbi-platinum-debit",
+      "name": "住信SBIネット銀行 プラチナデビットカード",
+      "issuer": "住信SBIネット銀行",
+      "annualFee": 11000,
+      "baseRate": 1.25,
+      "pointValue": 1,
+      "bonusRates": [],
+      "specialBonuses": [
+        {
+          "type": "fixed",
+          "bonus": 0,
+          "description": "銀行残高100万円以上で+0.25%（合計1.5%）"
+        },
+        {
+          "type": "fixed",
+          "bonus": 0,
+          "description": "銀行残高200万円以上で+0.5%（合計1.75%）"
+        },
+        {
+          "type": "fixed",
+          "bonus": 0,
+          "description": "銀行残高500万円以上で+0.75%（合計2.0%）"
+        },
+        {
+          "type": "fixed",
+          "bonus": 0,
+          "description": "円普通預金残高1,000万円以上で+1.25%（合計2.5%）"
+        }
+      ],
+      "description": "デビットカードで1.25%還元。預金残高に応じて最大2.5%まで還元率アップ。",
+      "affiliateUrl": "https://www.netbk.co.jp/contents/lineup/card/debit-platinum/",
+      "exclusiveGroup": "sbi-debit"
+    },
+    {
+      "id": "sbi-debit-point-plus",
+      "name": "住信SBIネット銀行 デビットカード Point+",
+      "issuer": "住信SBIネット銀行",
+      "annualFee": 0,
+      "baseRate": 1.25,
+      "pointValue": 1,
+      "bonusRates": [],
+      "specialBonuses": [
+        {
+          "type": "fixed",
+          "bonus": 0,
+          "description": "円普通預金残高200万円以上で+0.25%（合計1.5%）"
+        },
+        {
+          "type": "fixed",
+          "bonus": 0,
+          "description": "円普通預金残高500万円以上で+0.5%（合計1.75%）"
+        },
+        {
+          "type": "fixed",
+          "bonus": 0,
+          "description": "銀行残高1,000万円以上で+0.75%（合計2.0%）"
+        }
+      ],
+      "description": "年会費無料のデビットカードで1.25%還元。銀行残高に応じて最大2.0%まで還元率アップ。",
+      "affiliateUrl": "https://www.netbk.co.jp/contents/lineup/card/debit/",
+      "exclusiveGroup": "sbi-debit"
+    },
+    {
+      "id": "jcb-card-w",
+      "name": "JCBカードW",
+      "issuer": "JCB",
+      "annualFee": 0,
+      "baseRate": 1.0,
+      "pointValue": 1,
+      "bonusRates": [
+        {
+          "merchant": "amazon",
+          "merchantName": "Amazon",
+          "rate": 2.0,
+          "description": "優待店でポイント2倍"
+        }
+      ],
+      "specialBonuses": [],
+      "description": "年会費無料で常に1.0%還元。18-39歳限定入会、入会後は40歳以降も継続可能。",
+      "affiliateUrl": "https://www.jcb.co.jp/promotion/ordercard/w/"
+    },
+    {
+      "id": "rakuten-card",
+      "name": "楽天カード",
+      "issuer": "楽天カード",
+      "annualFee": 0,
+      "baseRate": 1.0,
+      "pointValue": 1,
+      "bonusRates": [
+        {
+          "merchant": "rakuten",
+          "merchantName": "楽天市場",
+          "rate": 3.0,
+          "description": "楽天市場での利用"
+        }
+      ],
+      "specialBonuses": [],
+      "description": "年会費無料で1.0%還元。楽天市場で3.0%以上。発行枚数3,100万枚超の国民的カード。",
+      "affiliateUrl": "https://www.rakuten-card.co.jp/"
+    },
+    {
+      "id": "paypay-card-gold",
+      "name": "PayPayカード ゴールド",
+      "issuer": "PayPayカード",
+      "annualFee": 11000,
+      "baseRate": 1.5,
+      "pointValue": 1,
+      "bonusRates": [
+        {
+          "merchant": "yahoo_shopping",
+          "merchantName": "Yahoo!ショッピング・LOHACO",
+          "rate": 7.0,
+          "description": "Yahoo!ショッピング・LOHACOで最大7%還元"
+        }
+      ],
+      "specialBonuses": [],
+      "description": "基本還元率1.5%と高還元。ソフトバンク/ワイモバイルユーザーは通信料で最大10%還元。",
+      "affiliateUrl": "https://www.paypay-card.co.jp/gold/"
+    },
+    {
+      "id": "rakuten-premium-card",
+      "name": "楽天プレミアムカード",
+      "issuer": "楽天カード",
+      "annualFee": 11000,
+      "baseRate": 1.0,
+      "pointValue": 1,
+      "bonusRates": [
+        {
+          "merchant": "rakuten",
+          "merchantName": "楽天市場",
+          "rate": 3.0,
+          "description": "楽天市場での利用"
+        }
+      ],
+      "specialBonuses": [],
+      "description": "楽天市場で3.0%還元、誕生月は4.0%。空港ラウンジ年2回無料、楽天マガジン・ミュージック無料。",
+      "affiliateUrl": "https://www.rakuten-card.co.jp/card/rakuten-premium-card/"
+    },
+    {
+      "id": "luxury-card-black",
+      "name": "ラグジュアリーカード Mastercard Black",
+      "issuer": "ラグジュアリーカード",
+      "annualFee": 110000,
+      "baseRate": 1.25,
+      "pointValue": 1,
+      "bonusRates": [],
+      "specialBonuses": [],
+      "description": "基本還元率1.25%。金属製カード、高級レストラン・ホテル優待、コンシェルジュサービス付帯。",
+      "affiliateUrl": "https://www.luxurycard.co.jp/black-card"
+    },
+    {
+      "id": "amex-platinum",
+      "name": "アメリカン・エキスプレス・プラチナ・カード",
+      "issuer": "アメリカン・エキスプレス",
+      "annualFee": 165000,
+      "baseRate": 1.0,
+      "pointValue": 1,
+      "bonusRates": [],
+      "specialBonuses": [],
+      "description": "基本1.0%還元（最大3.0%）。プライオリティ・パス、FHR、年1回無料宿泊、ホテル上級会員資格、24時間コンシェルジュ。",
+      "affiliateUrl": "https://www.americanexpress.com/jp/credit-cards/platinum-card/"
+    },
+    {
+      "id": "saison-platinum-amex",
+      "name": "セゾンプラチナ・アメリカン・エキスプレス・カード",
+      "issuer": "クレディセゾン",
+      "annualFee": 33000,
+      "baseRate": 0.15,
+      "pointValue": 1,
+      "bonusRates": [],
+      "specialBonuses": [],
+      "description": "1,000円で1.5pt（0.15%）。海外は0.2%。コンシェルジュ、プライオリティ・パス、旅行保険最高1億円。",
+      "affiliateUrl": "https://www.saisoncard.co.jp/amextop/platinum-pro/"
+    },
+    {
+      "id": "orico-card-the-point",
+      "name": "Orico Card THE POINT",
+      "issuer": "オリエントコーポレーション",
+      "annualFee": 0,
+      "baseRate": 1.0,
+      "pointValue": 1,
+      "bonusRates": [],
+      "specialBonuses": [
+        {
+          "type": "annual_usage",
+          "threshold": 0,
+          "bonus": 0,
+          "description": "入会後6ヶ月間は2.0%還元（上限50万円まで）"
+        }
+      ],
+      "description": "年会費無料で1.0%還元。入会後6ヶ月間は2.0%。オリコモール経由で最大2.0%。",
+      "affiliateUrl": "https://www.orico.co.jp/creditcard/list/thepoint/"
+    },
+    {
+      "id": "ana-amex-premium",
+      "name": "ANA アメリカン・エキスプレス・プレミアム・カード",
+      "issuer": "アメリカン・エキスプレス",
+      "annualFee": 165000,
+      "baseRate": 1.0,
+      "pointValue": 2,
+      "bonusRates": [
+        {
+          "merchant": "travel",
+          "merchantName": "ANAグループ便・機内販売",
+          "rate": 1.0,
+          "description": "ANAマイルプラス提携店で2.0%還元（基本1%+ボーナス1%）"
+        }
+      ],
+      "specialBonuses": [
+        {
+          "type": "fixed",
+          "bonus": 10000,
+          "description": "カード継続で毎年10,000マイル"
+        },
+        {
+          "type": "annual_usage",
+          "threshold": 5000000,
+          "bonus": 15000,
+          "description": "年間500万円利用で30,000円分ANAスカイコイン（15,000マイル相当）"
+        }
+      ],
+      "description": "ANAカード最上級。基本1.0%（2円/マイル）。継続で毎年10,000マイル。ANAグループで2.0%。",
+      "affiliateUrl": "https://www.ana.co.jp/ja/jp/amc/anacard/amex_premium/"
+    },
+    {
+      "id": "ana-visa-platinum-premium",
+      "name": "ANA VISAプラチナ プレミアムカード",
+      "issuer": "三井住友カード",
+      "annualFee": 88000,
+      "baseRate": 1.5,
+      "pointValue": 2,
+      "bonusRates": [
+        {
+          "merchant": "travel",
+          "merchantName": "ANA航空券購入",
+          "rate": 2.0,
+          "description": "ANA公式サイトで航空券購入時は3.5%還元（基本1.5%+ボーナス2%）"
+        }
+      ],
+      "specialBonuses": [
+        {
+          "type": "fixed",
+          "bonus": 10000,
+          "description": "カード継続で毎年10,000マイル"
+        }
+      ],
+      "description": "ANAカード最高還元率1.5%（2円/マイル）。継続で毎年10,000マイル。ANA航空券で3.5%。",
+      "affiliateUrl": "https://www.smbc-card.com/nyukai/card/ana_visa_platinum_premium.jsp"
+    },
+    {
+      "id": "ana-jcb-premium",
+      "name": "ANA JCBカード プレミアム",
+      "issuer": "JCB",
+      "annualFee": 77000,
+      "baseRate": 1.3,
+      "pointValue": 2,
+      "bonusRates": [],
+      "specialBonuses": [
+        {
+          "type": "fixed",
+          "bonus": 10000,
+          "description": "カード継続で毎年10,000マイル"
+        }
+      ],
+      "description": "基本1.3%還元（2円/マイル）。継続で毎年10,000マイル。ANAラウンジ年2回利用可。",
+      "affiliateUrl": "https://www.jcb.co.jp/promotion/ordercard/ana_jcb_premium/"
+    },
+    {
+      "id": "jal-platinum-jcb",
+      "name": "JALカード プラチナ（JCB）",
+      "issuer": "JCB",
+      "annualFee": 34100,
+      "baseRate": 1.0,
+      "pointValue": 2,
+      "bonusRates": [
+        {
+          "merchant": "travel",
+          "merchantName": "JAL特約店",
+          "rate": 1.0,
+          "description": "JAL特約店で2.0%還元（基本1%+ボーナス1%）"
+        },
+        {
+          "merchant": "jal_group",
+          "merchantName": "JAL航空券・機内販売",
+          "rate": 3.0,
+          "description": "JALグループで4.0%還元（基本1%+ボーナス3%）"
+        }
+      ],
+      "specialBonuses": [
+        {
+          "type": "fixed",
+          "bonus": 2000,
+          "description": "毎年初回搭乗で2,000マイル"
+        }
+      ],
+      "description": "基本1.0%（2円/マイル）。JALグループで4.0%。毎年初回搭乗で2,000マイル。",
+      "affiliateUrl": "https://jalcard.jal.co.jp/cgi-bin/cardlist/af.cgi?f=platinum_jcb"
+    },
+    {
+      "id": "jal-club-a-gold",
+      "name": "JAL CLUB-Aゴールドカード",
+      "issuer": "三菱UFJニコス",
+      "annualFee": 17600,
+      "baseRate": 1.0,
+      "pointValue": 2,
+      "bonusRates": [
+        {
+          "merchant": "travel",
+          "merchantName": "JAL特約店",
+          "rate": 1.0,
+          "description": "JAL特約店で2.0%還元（基本1%+ボーナス1%）"
+        }
+      ],
+      "specialBonuses": [
+        {
+          "type": "fixed",
+          "bonus": 2000,
+          "description": "毎年初回搭乗で2,000マイル"
+        }
+      ],
+      "description": "基本1.0%（2円/マイル）。JAL特約店で2.0%。毎年初回搭乗で2,000マイル。空港ラウンジ無料。",
+      "affiliateUrl": "https://jalcard.jal.co.jp/cgi-bin/cardlist/af.cgi?f=club-a_gold"
+    },
+    {
+      "id": "jal-amex-platinum",
+      "name": "JALアメックス プラチナ",
+      "issuer": "三菱UFJニコス",
+      "annualFee": 34100,
+      "baseRate": 1.0,
+      "pointValue": 2,
+      "bonusRates": [
+        {
+          "merchant": "travel",
+          "merchantName": "JAL関連支払い",
+          "rate": 2.0,
+          "description": "JAL航空券・機内販売で3.0%還元（基本1%+ボーナス2%）"
+        }
+      ],
+      "specialBonuses": [
+        {
+          "type": "fixed",
+          "bonus": 2000,
+          "description": "毎年初回搭乗で2,000マイル"
+        }
+      ],
+      "description": "基本1.0%（2円/マイル）。JAL関連で3.0%。毎年初回搭乗で2,000マイル。プライオリティ・パス付帯。",
+      "affiliateUrl": "https://jalcard.jal.co.jp/cgi-bin/cardlist/af.cgi?f=platinum_amex"
+    }
+  ]
+}
