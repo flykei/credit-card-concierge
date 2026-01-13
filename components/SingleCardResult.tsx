@@ -106,6 +106,17 @@ export default function SingleCardResult({ result, rank, isTopCard }: SingleCard
             詳細内訳を見る
           </summary>
           <div className="mt-3 space-y-2 text-gray-600">
+            {result.breakdown.effectiveBaseRate && result.breakdown.depositBalance && (
+              <div className="bg-blue-50 border border-blue-200 rounded p-2 mb-3">
+                <div className="flex justify-between text-xs text-blue-900 font-semibold">
+                  <span>💰 預金残高による還元率アップ:</span>
+                  <span>{result.card.baseRate}% → {result.breakdown.effectiveBaseRate}%</span>
+                </div>
+                <div className="text-xs text-blue-700 mt-1">
+                  銀行残高: {(result.breakdown.depositBalance / 10000).toLocaleString()}万円
+                </div>
+              </div>
+            )}
             <div className="flex justify-between">
               <span>基本還元ポイント:</span>
               <span>{Math.round(result.breakdown.basePoints).toLocaleString()}pt</span>

@@ -47,6 +47,9 @@ export function calculateReturn(card: Card, expenses: Expenses): CalculationResu
         effectiveBaseRate = 1.5;
       }
     }
+    // 預金残高と実質還元率を保存
+    breakdown.effectiveBaseRate = effectiveBaseRate;
+    breakdown.depositBalance = balance;
   }
 
   // 基本還元ポイントの計算

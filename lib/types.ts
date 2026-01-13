@@ -73,6 +73,8 @@ export interface ResultBreakdown {
   specialBonusPoints: number; // 特別ボーナスポイント
   annualFee: number; // 年会費
   details: BreakdownDetail[]; // 詳細内訳
+  effectiveBaseRate?: number; // 実質基本還元率（SBIカード等で預金残高により変動）
+  depositBalance?: number; // 預金残高（表示用）
 }
 
 export interface BreakdownDetail {
