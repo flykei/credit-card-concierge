@@ -252,6 +252,54 @@ export default function ResultDisplay({ results, multiCardRecommendations = [] }
                             </div>
                           </div>
                         )}
+                        
+                        {/* 詳細内訳 */}
+                        <div className="mt-3 pt-3 border-t border-gray-300">
+                          <details className="text-xs">
+                            <summary className="cursor-pointer text-gray-700 font-semibold hover:text-gray-900">
+                              ポイント獲得の詳細内訳を見る
+                            </summary>
+                            <div className="mt-3 space-y-2 text-gray-600">
+                              {cardAllocation.breakdown.effectiveBaseRate && 
+                               cardAllocation.breakdown.depositBalance && 
+                               cardAllocation.breakdown.effectiveBaseRate > cardAllocation.card.baseRate && (
+                                <div className="bg-blue-50 border border-blue-200 rounded p-2 mb-3">
+                                  <div className="flex justify-between text-xs text-blue-900 font-semibold">
+                                    <span>💰 預金残高による還元率アップ:</span>
+                                    <span>{cardAllocation.card.baseRate}% → {cardAllocation.breakdown.effectiveBaseRate}%</span>
+                                  </div>
+                                  <div className="text-xs text-blue-700 mt-1">
+                                    銀行残高: {(cardAllocation.breakdown.depositBalance / 10000).toLocaleString()}万円
+                                  </div>
+                                </div>
+                              )}
+                              <div className="flex justify-between">
+                                <span>基本還元ポイント:</span>
+                                <span>{Math.round(cardAllocation.breakdown.basePoints).toLocaleString()}pt</span>
+                              </div>
+                              <div className="flex justify-between">
+                                <span>ボーナス還元ポイント:</span>
+                                <span>{Math.round(cardAllocation.breakdown.bonusPoints).toLocaleString()}pt</span>
+                              </div>
+                              <div className="flex justify-between">
+                                <span>年間利用特典ボーナス:</span>
+                                <span>{Math.round(cardAllocation.breakdown.specialBonusPoints).toLocaleString()}pt</span>
+                              </div>
+                              <div className="flex justify-between font-semibold text-gray-900 pt-2 border-t">
+                                <span>合計ポイント価値:</span>
+                                <span>{Math.round(cardAllocation.pointsValue).toLocaleString()}円</span>
+                              </div>
+                              <div className="flex justify-between text-red-600">
+                                <span>年会費:</span>
+                                <span>-{cardAllocation.breakdown.annualFee.toLocaleString()}円</span>
+                              </div>
+                              <div className="flex justify-between font-bold text-indigo-600 pt-2 border-t">
+                                <span>実質還元額:</span>
+                                <span>{Math.round(cardAllocation.effectiveReturn).toLocaleString()}円</span>
+                              </div>
+                            </div>
+                          </details>
+                        </div>
                       </div>
                     ))}
                   </div>

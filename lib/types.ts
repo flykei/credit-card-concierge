@@ -61,6 +61,7 @@ export interface MultiCardRecommendation {
     totalPoints: number;
     pointsValue: number;
     effectiveReturn: number;
+    breakdown: ResultBreakdown; // 詳細内訳
   }[];
   totalEffectiveReturn: number; // 合計実質還元額
   totalEffectiveRate: number; // 合計実質還元率

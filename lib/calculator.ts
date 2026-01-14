@@ -237,7 +237,7 @@ function calculateReturnForAmount(
   amount: number,
   categoryExpenses: Record<string, number>,
   expenses: Expenses
-): { effectiveReturn: number; totalPoints: number; pointsValue: number } {
+): { effectiveReturn: number; totalPoints: number; pointsValue: number; breakdown: ResultBreakdown } {
   const additionalInfo = expenses.additionalInfo || {};
   // カスタムポイント価値があればそれを使用、なければカードのデフォルト値
   const pointValue = additionalInfo.customPointValues?.[card.id] ?? card.pointValue ?? 1;
@@ -272,12 +272,21 @@ function calculateReturnForAmount(
 
   // カテゴリ別ボーナスポイント
   let bonusPoints = 0;
+  const details: BreakdownDetail[] = [];
   for (const bonusRate of card.bonusRates) {
     const merchantExpense = categoryExpenses[bonusRate.merchant] || 0;
     if (merchantExpense > 0) {
       const merchantPoints = (merchantExpense * bonusRate.rate) / 100;
       const merchantBasePoints = (merchantExpense * effectiveBaseRate) / 100;
       bonusPoints += merchantPoints - merchantBasePoints;
+      
+      details.push({
+        merchant: bonusRate.merchant,
+        merchantName: bonusRate.merchantName,
+        amount: merchantExpense,
+        rate: bonusRate.rate,
+        points: merchantPoints,
+      });
     }
   }
 
@@ -299,7 +308,23 @@ function calculateReturnForAmount(
   const pointsValue = totalPoints * pointValue;
   const effectiveReturn = pointsValue - actualAnnualFee;
 
-  return { effectiveReturn, totalPoints, pointsValue };
+  const breakdown: ResultBreakdown = {
+    basePoints,
+    bonusPoints,
+    specialBonusPoints,
+    annualFee: actualAnnualFee,
+    details,
+  };
+
+  // SBIカードの場合は実質基本還元率と預金残高を保存
+  if ((card.id === 'sbi-platinum-debit' || card.id === 'sbi-debit-point-plus') && 
+      additionalInfo.sbiDepositBalance && 
+      effectiveBaseRate > card.baseRate) {
+    breakdown.effectiveBaseRate = effectiveBaseRate;
+    breakdown.depositBalance = additionalInfo.sbiDepositBalance;
+  }
+
+  return { effectiveReturn, totalPoints, pointsValue, breakdown };
 }
 
 /**
@@ -518,6 +543,7 @@ function calculate2CardCombination(
                     totalPoints: card1Result.totalPoints,
                     pointsValue: card1Result.pointsValue,
                     effectiveReturn: card1Result.effectiveReturn,
+                    breakdown: card1Result.breakdown,
                   },
                   {
                     card: card2,
@@ -526,6 +552,7 @@ function calculate2CardCombination(
                     totalPoints: card2Result.totalPoints,
                     pointsValue: card2Result.pointsValue,
                     effectiveReturn: card2Result.effectiveReturn,
+                    breakdown: card2Result.breakdown,
                   },
                 ],
                 totalEffectiveReturn,
@@ -543,6 +570,7 @@ function calculate2CardCombination(
                   totalPoints: card1Result.totalPoints,
                   pointsValue: card1Result.pointsValue,
                   effectiveReturn: card1Result.effectiveReturn,
+                  breakdown: card1Result.breakdown,
                 },
                 {
                   card: card2,
@@ -551,6 +579,7 @@ function calculate2CardCombination(
                   totalPoints: card2Result.totalPoints,
                   pointsValue: card2Result.pointsValue,
                   effectiveReturn: card2Result.effectiveReturn,
+                  breakdown: card2Result.breakdown,
                 },
               ],
               totalEffectiveReturn,
@@ -734,6 +763,7 @@ function calculate3CardCombination(
                       totalPoints: card1Result.totalPoints,
                       pointsValue: card1Result.pointsValue,
                       effectiveReturn: card1Result.effectiveReturn,
+                      breakdown: card1Result.breakdown,
                     },
                     {
                       card: card2,
@@ -742,6 +772,7 @@ function calculate3CardCombination(
                       totalPoints: card2Result.totalPoints,
                       pointsValue: card2Result.pointsValue,
                       effectiveReturn: card2Result.effectiveReturn,
+                      breakdown: card2Result.breakdown,
                     },
                     {
                       card: card3,
@@ -750,6 +781,7 @@ function calculate3CardCombination(
                       totalPoints: card3Result.totalPoints,
                       pointsValue: card3Result.pointsValue,
                       effectiveReturn: card3Result.effectiveReturn,
+                      breakdown: card3Result.breakdown,
                     },
                   ],
                   totalEffectiveReturn,
@@ -767,6 +799,7 @@ function calculate3CardCombination(
                     totalPoints: card1Result.totalPoints,
                     pointsValue: card1Result.pointsValue,
                     effectiveReturn: card1Result.effectiveReturn,
+                    breakdown: card1Result.breakdown,
                   },
                   {
                     card: card2,
@@ -775,6 +808,7 @@ function calculate3CardCombination(
                     totalPoints: card2Result.totalPoints,
                     pointsValue: card2Result.pointsValue,
                     effectiveReturn: card2Result.effectiveReturn,
+                    breakdown: card2Result.breakdown,
                   },
                   {
                     card: card3,
@@ -783,6 +817,7 @@ function calculate3CardCombination(
                     totalPoints: card3Result.totalPoints,
                     pointsValue: card3Result.pointsValue,
                     effectiveReturn: card3Result.effectiveReturn,
+                    breakdown: card3Result.breakdown,
                   },
                 ],
                 totalEffectiveReturn,
