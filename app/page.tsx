@@ -15,6 +15,14 @@ export default function Home() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const scrollToCalculator = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const element = document.getElementById('calculator');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50">
       {/* ヒーローセクション */}
@@ -32,12 +40,12 @@ export default function Home() {
             
             {/* CTAボタン */}
             <div className="mb-10">
-              <a
-                href="#calculator"
-                className="inline-block bg-gradient-to-r from-emerald-400 to-teal-500 hover:from-emerald-500 hover:to-teal-600 text-white font-bold text-lg px-12 py-5 rounded-2xl shadow-2xl hover:shadow-emerald-500/50 transition-all transform hover:scale-105"
+              <button
+                onClick={scrollToCalculator}
+                className="inline-block bg-gradient-to-r from-emerald-400 to-teal-500 hover:from-emerald-500 hover:to-teal-600 text-white font-bold text-lg px-12 py-5 rounded-2xl shadow-2xl hover:shadow-emerald-500/50 transition-all transform hover:scale-105 cursor-pointer"
               >
                 今すぐ無料で診断する →
-              </a>
+              </button>
               <p className="text-sm text-indigo-200 mt-3">
                 ✓ 完全無料　✓ 3分で完了　✓ 個人情報不要
               </p>
@@ -135,6 +143,24 @@ export default function Home() {
         {/* 計算機 */}
         <div id="calculator">
           <Calculator />
+        </div>
+
+        {/* ランキングページへのリンク */}
+        <div className="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl shadow-xl p-8 mt-12 text-white">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-2xl font-bold mb-2">実質還元率ランキング</h2>
+              <p className="text-indigo-100">
+                年間利用額に応じた実質還元率を徹底比較。TOP5のカードをグラフで可視化
+              </p>
+            </div>
+            <a
+              href="/ranking"
+              className="bg-white text-indigo-600 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 whitespace-nowrap"
+            >
+              ランキングを見る →
+            </a>
+          </div>
         </div>
 
         {/* 対応カード */}
@@ -254,12 +280,12 @@ export default function Home() {
               <p className="text-white font-semibold">あなたに最適なカードを診断</p>
               <p className="text-indigo-200 text-sm">完全無料・3分で完了</p>
             </div>
-            <a
-              href="#calculator"
-              className="bg-white text-indigo-600 font-bold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105 w-full sm:w-auto text-center"
+            <button
+              onClick={scrollToCalculator}
+              className="bg-white text-indigo-600 font-bold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105 w-full sm:w-auto text-center cursor-pointer"
             >
               今すぐ診断する →
-            </a>
+            </button>
           </div>
         </div>
       </div>
