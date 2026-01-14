@@ -1,6 +1,20 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import Calculator from '@/components/Calculator';
 
 export default function Home() {
+  const [showStickyButton, setShowStickyButton] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // スクロール位置が300px以上で固定ボタンを表示
+      setShowStickyButton(window.scrollY > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50">
       {/* ヘッダー */}
@@ -24,9 +38,23 @@ export default function Home() {
               年間支出から算出する<br />
               <span className="bg-gradient-to-r from-emerald-300 to-teal-300 bg-clip-text text-transparent">本当にお得な</span>クレジットカード
             </h2>
-            <p className="text-xl md:text-2xl mb-10 text-indigo-100 font-light">
+            <p className="text-xl md:text-2xl mb-8 text-indigo-100 font-light">
               還元率だけでは見えない、年会費込みの実質還元額で比較
             </p>
+            
+            {/* CTAボタン */}
+            <div className="mb-10">
+              <a
+                href="#calculator"
+                className="inline-block bg-gradient-to-r from-emerald-400 to-teal-500 hover:from-emerald-500 hover:to-teal-600 text-white font-bold text-lg px-12 py-5 rounded-2xl shadow-2xl hover:shadow-emerald-500/50 transition-all transform hover:scale-105"
+              >
+                今すぐ無料で診断する →
+              </a>
+              <p className="text-sm text-indigo-200 mt-3">
+                ✓ 完全無料　✓ 3分で完了　✓ 個人情報不要
+              </p>
+            </div>
+            
             <div className="flex flex-wrap gap-6 justify-center items-center text-sm">
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/20">
                 <svg className="w-5 h-5 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -54,33 +82,13 @@ export default function Home() {
       {/* メインコンテンツ */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* 使い方セクション */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-            3ステップで最適なカードを診断
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="relative bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-              <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                1
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900 mt-2">年間支出額を入力</h3>
-              <p className="text-gray-600 leading-relaxed">クレジットカードで払う金額を入力するだけ。Amazon、楽天などの内訳も入力可能</p>
-            </div>
-            <div className="relative bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-              <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                2
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900 mt-2">最適カードを診断</h3>
-              <p className="text-gray-600 leading-relaxed">専門家が厳選した高還元カードから、あなたの支出パターンに最適なカードをランキング形式で表示</p>
-            </div>
-            <div className="relative bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-              <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                3
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900 mt-2">今すぐ申し込み</h3>
-              <p className="text-gray-600 leading-relaxed">診断結果からそのまま公式サイトへアクセスして申し込みが完了</p>
-            </div>
-          </div>
+        <div className="mb-12 text-center">
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <span className="font-semibold text-indigo-600">年間支出額を入力</span> → <span className="font-semibold text-purple-600">最適カードを表示</span> → <span className="font-semibold text-emerald-600">今すぐ申し込み</span>
+          </p>
+          <p className="text-sm text-gray-500 mt-2">
+            専門家が厳選した高還元カードから、あなたの支出パターンに最もお得なカードをランキング形式で診断します
+          </p>
         </div>
 
         {/* 特徴セクション */}
@@ -137,7 +145,9 @@ export default function Home() {
         </div>
 
         {/* 計算機 */}
-        <Calculator />
+        <div id="calculator">
+          <Calculator />
+        </div>
 
         {/* 対応カード */}
         <div className="bg-white rounded-lg shadow-md p-6 mt-12">
@@ -245,6 +255,26 @@ export default function Home() {
           </div>
         </div>
       </main>
+
+      {/* 固定CTAボタン（スティッキー） */}
+      <div className={`fixed bottom-0 left-0 right-0 z-40 transition-transform duration-300 ${
+        showStickyButton ? 'translate-y-0' : 'translate-y-full'
+      }`}>
+        <div className="bg-gradient-to-r from-indigo-600 to-purple-600 shadow-2xl">
+          <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div className="hidden sm:block">
+              <p className="text-white font-semibold">あなたに最適なカードを診断</p>
+              <p className="text-indigo-200 text-sm">完全無料・3分で完了</p>
+            </div>
+            <a
+              href="#calculator"
+              className="bg-white text-indigo-600 font-bold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105 w-full sm:w-auto text-center"
+            >
+              今すぐ診断する →
+            </a>
+          </div>
+        </div>
+      </div>
 
       {/* フッター */}
       <footer className="bg-gray-800 text-white mt-20">
