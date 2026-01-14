@@ -91,6 +91,73 @@ export default function RankingPage() {
 
   const colors = ['#6366f1', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981'];
 
+  // カスタムツールチップコンポーネント
+  const CustomTooltip = ({ active, payload, label }: any) => {
+    if (!active || !payload || payload.length === 0) return null;
+
+    // カード名と色のマッピングを作成
+    const colorMap: { [key: string]: string } = {};
+    topCards.forEach((ranking, index) => {
+      colorMap[ranking.card.name] = colors[index];
+    });
+
+    // 値で降順ソート
+    const sortedPayload = [...payload].sort((a, b) => {
+      const valueA = typeof a.value === 'number' ? a.value : 0;
+      const valueB = typeof b.value === 'number' ? b.value : 0;
+      return valueB - valueA;
+    });
+
+    return (
+      <div
+        style={{
+          backgroundColor: 'rgba(255, 255, 255, 0.95)',
+          border: '1px solid #e5e7eb',
+          borderRadius: '0.5rem',
+          padding: '12px',
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+        }}
+      >
+        <p style={{ marginBottom: '8px', fontWeight: '600', color: '#374151' }}>
+          {label.toLocaleString()}万円
+        </p>
+        {sortedPayload.map((entry, index) => (
+          <div
+            key={index}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              marginBottom: index < sortedPayload.length - 1 ? '4px' : '0',
+            }}
+          >
+            <div
+              style={{
+                width: '12px',
+                height: '12px',
+                backgroundColor: colorMap[entry.name] || entry.color,
+                marginRight: '8px',
+                borderRadius: '2px',
+              }}
+            />
+            <span style={{ fontSize: '14px', color: '#374151' }}>
+              {entry.name}:
+            </span>
+            <span
+              style={{
+                fontSize: '14px',
+                fontWeight: '600',
+                color: '#111827',
+                marginLeft: '4px',
+              }}
+            >
+              {typeof entry.value === 'number' ? `${entry.value.toFixed(2)}%` : ''}
+            </span>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50">
       {/* ヘッダー */}
@@ -132,16 +199,7 @@ export default function RankingPage() {
                   stroke="#6b7280"
                   domain={[0, 'auto']}
                 />
-                <Tooltip 
-                  formatter={(value: any) => value !== undefined ? `${value.toFixed(2)}%` : ''}
-                  labelFormatter={(label: any) => `${label.toLocaleString()}万円`}
-                  contentStyle={{ 
-                    backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                    border: '1px solid #e5e7eb',
-                    borderRadius: '0.5rem',
-                    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
-                  }}
-                />
+                <Tooltip content={<CustomTooltip />} />
                 <Legend />
                 {topCards.map((ranking, index) => (
                   <Line
